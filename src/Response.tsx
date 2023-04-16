@@ -1,7 +1,7 @@
-export default function Response(props){
+export default function Response(props :any){
     return (
         <div className="question">
-            <img src={} className=""></img>
+            <img src={responseIcon} className=""></img>
             <p className="question-text">{props.response}</p>
         </div>
     )
