@@ -1,14 +1,14 @@
 import React from "react"
 import Header from "./Header"
-import ConversationPanel from "./ConversationPanel"
 import PromptBar from "./PromptBar"
-import './App.css'
+import Dialog from "./Dialog"
+
 
 function App() {
   return (
-    <div>
+    <div className="flex-col bg-[#161617] min-h-screen min-w-[100vw]">
       <Header />
-      <ConversationPanel />
+      <Dialog />
       <PromptBar />
     </div>
   )
