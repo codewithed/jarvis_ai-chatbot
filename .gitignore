@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+sample_response.txt
 
 # Editor directories and files
 .vscode/*

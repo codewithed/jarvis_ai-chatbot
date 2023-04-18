@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Dialog />
       <PromptBar />
-      <p className="p-1 text-center text-[whitesmoke]">Made with ❤️ by <a href="https://github.com/codewithed">@codewithed</a></p>
+      <p className="p-1 text-center text-sm text-[whitesmoke]">Made with ❤️ by <a href="https://github.com/codewithed">@codewithed</a></p>
     </div>
   )
 }
