@@ -43,13 +43,15 @@ function App() {
       console.error(error);
     });
   }
-  
+
   // a function that renders messages everytime messages state changes
   return (
     <div className="flex-col bg-[#343541] min-h-screen min-w-[100vw]">
       <Header />
       <Dialog />
-      <PromptBar value={currentMessage} onClick={sendToChatGPT} onChange={setCurrentMessage}/>
+      <PromptBar value={currentMessage} 
+      sendMessage={sendToChatGPT} onChange={setCurrentMessage} 
+      setMessages={setMessages} messages={messages}/>
     </div>
   )
 }
