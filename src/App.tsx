@@ -1,8 +1,9 @@
 import React from "react"
 import Header from "./Header"
-import PromptBar from "./PromptBar"
+import Send from './assets/send-icon.svg'
 import Dialog from "./Dialog"
 import axios from 'axios';
+import PromptBar from "./PromptBar";
 
 
 type Message = {
@@ -13,12 +14,9 @@ type Message = {
 }
 
 function App() {
-  const [messages, setMessages] = React.useState([
-    {
-      "role": "user",
-      "content": "What is AI?",
-    }
-  ])
+  const [messages, setMessages] = React.useState([])
+
+  const [currentMessage, setCurrentMessage] = React.useState("");
 
   function sendToChatGPT() {
     // setting the api endpoint url
@@ -45,14 +43,13 @@ function App() {
       console.error(error);
     });
   }
-
-  React.useEffect(() => {sendToChatGPT()},[]);
+  
+  // a function that renders messages everytime messages state changes
   return (
     <div className="flex-col bg-[#343541] min-h-screen min-w-[100vw]">
       <Header />
       <Dialog />
-      <PromptBar onClick={sendToChatGPT}/>
-      <p className="p-1 text-center text-sm text-[whitesmoke]">Made with ❤️ by <a href="https://github.com/codewithed">@codewithed</a></p>
+      <PromptBar value={currentMessage} onClick={sendToChatGPT} onChange={setCurrentMessage}/>
     </div>
   )
 }
