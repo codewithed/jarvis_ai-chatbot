@@ -1,10 +1,10 @@
 import send from './assets/send-icon.svg'
 
-export default function PromptBar(){
+export default function PromptBar(props: any){
     return (
 <div className="flex items-center justify-center gap-3 p-4">
             <textarea className='w-[70%] h-[50px] rounded-lg drop-shadow-2xl bg-[#444654]'></textarea>
-            <button><img src={send} className="h-[25px]"></img></button>
+            <button onClick={props.onClick}><img src={send} className="h-[25px]"></img></button>
         </div>
     )
 }
