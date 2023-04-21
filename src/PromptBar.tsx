@@ -2,16 +2,20 @@ import Send from './assets/send-icon.svg'
 
 export default function PromptBar(props: any) {
     return (
-        <div className="flex-col items-center justify-center gap-3 p-4">
-        <textarea className='w-[70%] h-[50px] rounded-lg drop-shadow-2xl bg-[#444654]' value={props.value} 
-        onChange={(e) => props.onChange({ role: "user", content: e.target.value})}></textarea>
+        <div className="flex-col p-4">
+            <div className='w-[100%] flex justify-center'>
+            <div className='flex items-center justify-center gap-3 bg-[#444654] rounded-lg drop-shadow-2xl p-2 w-[fit-content]'>
+            <input type="text" className='min-w-[70vw] h-[50px] bg-transparent text-[whitesmoke]' value={props.value} 
+            onChange={(e) => props.onChange({ role: "user", content: e.target.value})}></input>
             <button onClick={() => {
                 props.setCurrentMessage(...props.messages, props.value);
                 props.sendMessage
             }}>
-                <img src={Send} className="h-[25px]"></img>
+                <img src={Send} className="h-[20px]"></img>
             </button>
-          <p className="p-1 text-center text-sm text-[whitesmoke]">Made with ❤️ by <a href="https://github.com/codewithed">@codewithed</a></p>
+            </div>
+            </div>
+          <p className="p-3 text-center text-sm text-[whitesmoke]">Made with ❤️ by <a href="https://github.com/codewithed">@codewithed</a></p>
       </div>
     )
 }
