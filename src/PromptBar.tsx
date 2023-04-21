@@ -8,7 +8,7 @@ export default function PromptBar(props: any) {
             <input type="text" className='min-w-[70vw] h-[50px] bg-transparent text-[whitesmoke] overflow-y-hidden' value={props.value} 
             onChange={(e) => props.setCurrentMessage(e.target.value)}></input>
             <button onClick={() => {
-                props.setMessage(...props.messages, {role: "user", content: props.value});
+                props.setMessages([...props.messages, {role: "user", content: props.value}]);
                 props.sendMessage
             }}>
                 <img src={Send} className="h-[20px]"></img>
