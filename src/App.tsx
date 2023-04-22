@@ -6,12 +6,6 @@ import axios from 'axios';
 import PromptBar from "./PromptBar";
 
 
-type Message = {
-  role: string;
-  content: string;
-  finish_reason?: string;
-  index?: number;
-}
 
 function App() {
   const [messages, setMessages] = React.useState([])
@@ -32,7 +26,7 @@ function App() {
     // Making the API request
     axios.post(apiUrl, data, { headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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'
+      'Authorization': 'Bearer'
     }})
     .then((response) => { 
       // handle response
@@ -44,6 +38,7 @@ function App() {
     });
   }
 
+  React.useEffect(() => {console.log(import.meta.env.VITE_KEY)} )
   // a function that renders messages everytime messages state changes
   return (
     <div className="flex-col bg-[#343541] min-h-screen min-w-[100vw]">
