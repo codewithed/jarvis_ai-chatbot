@@ -1,14 +1,10 @@
 import ChatAvatar from './assets/chatGPT-icon.svg'
 import UserAvatar from './assets/user-avatar.png'
 
-type messageProps = {
-    role: string
-    content: string
-}
 
-export default function Response(props :messageProps){
+export default function Response(props :any){
     return (
-        <div className="question">
+        <div className={props.bgColor}>
             <img src={props.role === 'question' ? UserAvatar : ChatAvatar} className=""></img>
             <p className="question-text">{props.content}</p>
         </div>
