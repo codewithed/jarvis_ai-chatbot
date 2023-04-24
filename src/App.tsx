@@ -1,10 +1,8 @@
 import React from "react"
 import Header from "./Header"
-import Send from './assets/send-icon.svg'
 import Dialog from "./Dialog"
 import axios from 'axios';
 import PromptBar from "./PromptBar";
-import Message from "./Message";
 
 
 
