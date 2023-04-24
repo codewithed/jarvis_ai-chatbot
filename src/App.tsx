@@ -61,23 +61,3 @@ function App() {
 }
 
 export default App
-
-/* 
-      
-      
-      
-      <div className="flex-col p-4">
-            <div className='w-[100%] flex justify-center'>
-            <div className='flex items-center justify-center gap-3 bg-[#444654] rounded-lg drop-shadow-2xl p-2 w-[fit-content]'>
-            <textarea className='min-w-[70vw] h-[50px] bg-transparent text-[whitesmoke] overflow-y-hidden' 
-            onChange={(e) => setCurrentMessage(e.target.value) }></textarea>
-            <button onClick={() => {
-                setMessages((prevMesages) => [...prevMesages, {role: "user", content: currentMessage}]);
-                console.log(currentMessage)
-            }}>
-                <img src={Send} className="h-[20px]"></img>
-            </button>
-            </div>
-            </div>
-          <p className="p-3 text-center text-sm text-[whitesmoke]">Made with ❤️ by <a href="https://github.com/codewithed">@codewithed</a></p>
-        </div>*/
