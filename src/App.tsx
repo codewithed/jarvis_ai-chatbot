@@ -53,7 +53,7 @@ function App() {
       <Header />
       <Dialog messages={messages} />
       <PromptBar value={currentMessage} 
-      sendMessage={() => sendToChatGPT()} setCurrentMessage={setCurrentMessage} 
+      sendMessage={sendToChatGPT} setCurrentMessage={setCurrentMessage} 
       setMessages={setMessages} messages={messages}/> 
       
     </div>

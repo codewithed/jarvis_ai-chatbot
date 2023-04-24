@@ -10,7 +10,7 @@ export default function PromptBar(props: any) {
             onChange={(e) => props.setCurrentMessage(e.target.value) }></textarea>
             <button onClick={() => {
                 props.setMessages((prevMessages: any) => [...prevMessages, {role: "user", content: props.value}]);
-                props.sendToChatGPT
+                props.sendMessage()
             }}>
                 <img src={Send} className="h-[20px]"></img>
             </button>
