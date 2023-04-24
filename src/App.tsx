@@ -10,8 +10,7 @@ import Message from "./Message";
 
 function App() {
   type Message = { 
-    role : string
-    user: string
+    role : string 
     content: string
     finish_reason?: string
     index?: number
@@ -24,7 +23,7 @@ function App() {
   function sendToChatGPT() {
     // setting the api endpoint url
     const apiUrl = 'https://api.openai.com/v1/chat/completions';
-    const API_KEY = "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"
+    const API_KEY = "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"
 
     // setting request data
     const data = {
@@ -49,25 +48,36 @@ function App() {
     });
   }
 
-  let messageComponents: any = []
-  // a function that renders messages everytime messages state changes
-  React.useEffect(() => {
-  messageComponents = messages.map(message => 
-  <Message 
-    content={message.content} 
-    bgColor={message.role === 'user' ? "bg-[#343541]" : "bg-[#444654]"}/>)
-  },[messages])
-
-
   return (
     <div className="flex-col bg-[#343541] min-h-screen min-w-[100vw]">
       <Header />
-      <Dialog {...messageComponents} />
+      <Dialog messages={messages} />
       <PromptBar value={currentMessage} 
-      sendMessage={sendToChatGPT} setCurrentMessage={setCurrentMessage} 
-      setMessages={setMessages} messages={messages}/>
+      sendMessage={() => sendToChatGPT()} setCurrentMessage={setCurrentMessage} 
+      setMessages={setMessages} messages={messages}/> 
+      
     </div>
   )
 }
 
 export default App
+
+/* 
+      
+      
+      
+      <div className="flex-col p-4">
+            <div className='w-[100%] flex justify-center'>
+            <div className='flex items-center justify-center gap-3 bg-[#444654] rounded-lg drop-shadow-2xl p-2 w-[fit-content]'>
+            <textarea className='min-w-[70vw] h-[50px] bg-transparent text-[whitesmoke] overflow-y-hidden' 
+            onChange={(e) => setCurrentMessage(e.target.value) }></textarea>
+            <button onClick={() => {
+                setMessages((prevMesages) => [...prevMesages, {role: "user", content: currentMessage}]);
+                console.log(currentMessage)
+            }}>
+                <img src={Send} className="h-[20px]"></img>
+            </button>
+            </div>
+            </div>
+          <p className="p-3 text-center text-sm text-[whitesmoke]">Made with ❤️ by <a href="https://github.com/codewithed">@codewithed</a></p>
+        </div>*/
