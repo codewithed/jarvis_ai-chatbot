@@ -35,7 +35,6 @@ function App() {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + API_KEY
     }})
-
     .then((response) => { 
       // handle response
       const message = response.data.choices[0].message
