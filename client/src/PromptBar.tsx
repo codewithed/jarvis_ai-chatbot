@@ -1,4 +1,5 @@
 import Send from './assets/send-icon.svg'
+import React from 'react';
 
 export default function PromptBar(props: any) {
     return (

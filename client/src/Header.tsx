@@ -1,4 +1,5 @@
 import ChatAvatar from './assets/chatGPT-icon.svg'
+import React from 'react'
 export default function Header(){
     return (
         <div className="flex items-baseline justify-center">

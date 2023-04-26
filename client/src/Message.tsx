@@ -1,5 +1,6 @@
 import ChatAvatar from './assets/chatGPT-icon.svg'
 import UserAvatar from './assets/user-avatar.png'
+import React from 'react'
 
 
 export default function Response(props :any){
