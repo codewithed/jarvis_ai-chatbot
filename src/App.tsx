@@ -5,7 +5,6 @@ import axios from 'axios';
 import PromptBar from "./PromptBar";
 
 
-
 function App() {
   type Message = { 
     role : string 
@@ -19,30 +18,20 @@ function App() {
   const [currentMessage, setCurrentMessage] = React.useState("");
 
   function sendToChatGPT() {
-    // setting the api endpoint url
-    const apiUrl = 'https://api.openai.com/v1/chat/completions';
-    const API_KEY = "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"
-
-    // setting request data
-    const data = {
-      model: "gpt-3.5-turbo",
-      messages: messages,
-      max_tokens: 50
+    const options = {
+      url: "http://localhost:3000/api",
+      messages: messages
     }
-
-    // Making the API request
-    axios.post(apiUrl, data, { headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + API_KEY
-    }})
-    .then((response) => { 
-      // handle response
-      const message = response.data.choices[0].message
-      setMessages((prevMessage) => ({...prevMessage, message}))
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    axios.request(options)
+      .then((response) => { 
+        // handle response
+        const message = response.data.choices[0].message
+        setMessages((prevMessage) => ({...prevMessage, message}))
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    
   }
 
   return (
