@@ -23,7 +23,10 @@ function App() {
       url: "http://localhost:3000/api",
       body: JSON.stringify({
         messages: messages,
-      })
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
     }
     axios.request(options)
       .then((response) => { 
