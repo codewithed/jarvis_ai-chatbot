@@ -19,8 +19,11 @@ function App() {
 
   function sendToChatGPT() {
     const options = {
+      method: 'POST',
       url: "http://localhost:3000/api",
-      messages: messages
+      body: JSON.stringify({
+        messages: messages,
+      })
     }
     axios.request(options)
       .then((response) => { 
@@ -47,3 +50,4 @@ function App() {
 }
 
 export default App
+
