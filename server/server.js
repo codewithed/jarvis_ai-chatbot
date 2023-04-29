@@ -28,7 +28,7 @@ app.post('/api', async (req, res) => {
     });
     const completion = await response.json();
     console.log(completion.data.choices[0].message);
-    res.json(completion);
+    res.send(completion);
   } catch (error) {
     console.error(error);
   }
