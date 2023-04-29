@@ -38,19 +38,3 @@ app.post('/api', async (req, res) => {
 app.listen(port, () => {
   console.log(`app running on port ${port}`);
 });
-
-/*
-console.log(req);
-  const requestOptions = {
-    url: 'https://api.openai.com/v1/chat/completions',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${key}`,
-    },
-    body: JSON.stringify({
-      model: 'gpt-3.5-turbo',
-      messages: req.body.messages,
-      max_tokens: 1024,
-    }),};
- */
