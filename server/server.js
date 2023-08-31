@@ -5,11 +5,15 @@ const { Configuration, OpenAIApi } = require('openai');
 
 dotenv.config();
 
+// create openai configuration
 const configuration = new Configuration({
   apiKey: process.env.API_KEY,
 });
+
+// create openai instance
 const openai = new OpenAIApi(configuration);
 
+// create express app
 const app = express();
 app.use(cors({
   origin: '*',
@@ -22,12 +26,12 @@ app.post('/api', async (req, res) => {
   // process the response
   try {
     const response = await openai.createChatCompletion({
-      model: 'gpt-3.5-turbo',
       messages: req.body.messages,
-      max_tokens: 100,
+      model: 'gpt-3.5-turbo',
+      max_tokens: 1000,
     });
-    const completion = await response.json();
-    console.log(completion.data.choices[0].message);
+    const completion = await JSON.stringify(response.data.choices[0].message);
+    console.log(completion.message);
     res.send(completion);
   } catch (error) {
     console.error(error);

@@ -13,7 +13,7 @@ function App() {
     index?: number
   }
 
-  const [messages, setMessages] = React.useState<Message[]>([])
+  const [messages, setMessages] = React.useState([])
 
   const [currentMessage, setCurrentMessage] = React.useState("");
 
@@ -21,9 +21,9 @@ function App() {
     const options = {
       method: 'POST',
       url: "http://localhost:3000/api",
-      body: JSON.stringify({
+      data: {
         messages: messages,
-      }),
+      },
       headers: {
         "Content-type": "application/json",
       },
@@ -31,8 +31,9 @@ function App() {
     axios.request(options)
       .then((response) => { 
         // handle response
-        const message = response.data.choices[0].message
-        setMessages((prevMessage) => ({...prevMessage, message}))
+        const message = response
+        setMessages((prevMessages) => ({...prevMessages, message}))
+        console.log(messages)
       })
       .catch((error) => {
         console.error(error);
