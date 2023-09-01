@@ -31,7 +31,7 @@ app.post('/api', async (req, res) => {
       max_tokens: 1000,
     });
     const completion = await JSON.stringify(response.data.choices[0].message);
-    console.log(completion.message);
+    console.log(completion);
     res.send(completion);
   } catch (error) {
     console.error(error);
