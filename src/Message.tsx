@@ -3,7 +3,7 @@ import UserAvatar from './assets/user-avatar.png'
 import React from 'react'
 
 
-export default function Response(props :any){
+export default function Message(props :any){
     return (
         <div className={`flex text-[whitesmoke] ${props.bgColor} shadow-lg p-1`}>
             <img src={props.role === 'user' ? UserAvatar : ChatAvatar} className=""></img>
