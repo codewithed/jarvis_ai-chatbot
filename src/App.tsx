@@ -7,22 +7,18 @@ import PromptBar from "./PromptBar";
 
 function App() {
   type Message = { 
-    role : string 
+    role: string 
     content: string
-    finish_reason?: string
-    index?: number
   }
 
-  const [messages, setMessages] = React.useState([])
+  const [messages, setMessages] = React.useState<Message[]>([]);
 
-  const [currentMessage, setCurrentMessage] = React.useState("");
-
-  function sendToChatGPT() {
+  function sendToChatGPT(messagesToSend) {
     const options = {
       method: 'POST',
       url: "http://localhost:3000/api",
       data: {
-        messages: messages,
+        messages: messagesToSend,
       },
       headers: {
         "Content-type": "application/json",
@@ -31,24 +27,26 @@ function App() {
     axios.request(options)
       .then((response) => { 
         // handle response
-        const message = response
-        setMessages((prevMessages) => ({...prevMessages, message}))
-        console.log(messages)
+      const message : Message = response.data
+       setMessages((prevMessages) => ([...prevMessages, message]))
       })
       .catch((error) => {
         console.error(error);
-      });
-    
+      }); 
+  }
+
+  function getMessages() {
+    return messages
   }
 
   return (
     <div className="flex-col bg-[#343541] min-h-screen min-w-[100vw]">
       <Header />
-      <Dialog messages={messages} />
-      <PromptBar value={currentMessage} 
-      sendMessage={sendToChatGPT} setCurrentMessage={setCurrentMessage} 
-      setMessages={setMessages} messages={messages}/> 
-      
+      <Dialog messages={messages}/>
+      <PromptBar
+      sendMessage={sendToChatGPT} 
+      messages={messages}
+      setMessages={setMessages}/>  
     </div>
   )
 }
