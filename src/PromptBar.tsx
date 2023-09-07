@@ -20,7 +20,13 @@ export default function PromptBar(props: any) {
                     // set currentMessage to e.target.value
                     value={currentMessage}
                     onChange={(e) => setCurrentMessage(e.target.value)}></textarea>
-                    <button onClick={handleSendMessage}>
+                    <button onClick={() => {
+                        if (props.isLoading == false) {
+                            handleSendMessage()
+                            props.setIsLoading(true)
+                        }    
+                    }                        
+                    }>
                         <img src={Send} className="h-[20px]"></img>
                     </button>
                 </div>

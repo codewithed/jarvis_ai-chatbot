@@ -12,6 +12,7 @@ function App() {
   }
 
   const [messages, setMessages] = React.useState<Message[]>([]);
+  const [isLoading, setIsLoading] = React.useState(false)
 
   function sendToChatGPT(messagesToSend) {
     const options = {
@@ -29,6 +30,8 @@ function App() {
         // handle response
       const message : Message = response.data
        setMessages((prevMessages) => ([...prevMessages, message]))
+       //
+       setIsLoading(false)
       })
       .catch((error) => {
         console.error(error);
@@ -46,6 +49,8 @@ function App() {
       <PromptBar
       sendMessage={sendToChatGPT} 
       messages={messages}
+      isLoading={isLoading}
+      setIsLoading={setIsLoading}
       setMessages={setMessages}/>  
     </div>
   )

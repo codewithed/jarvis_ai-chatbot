@@ -2,8 +2,8 @@ import ChatAvatar from './assets/chatGPT-icon.svg'
 import React from 'react'
 export default function Header(){
     return (
-        <div className="flex items-baseline justify-center">
-            <h1 className='text-center text-[whitesmoke] text-2xl p-4'>edGPT <img src={ChatAvatar} className='inline w-8'></img></h1>
+        <div className="flex items-baseline justify-center mb-2">
+            <h1 className='text-center text-[whitesmoke] text-[35px] p-1'>JARVIS</h1>
         </div>
     )
 } 

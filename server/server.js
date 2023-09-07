@@ -28,7 +28,7 @@ app.post('/api', async (req, res) => {
     const response = await openai.createChatCompletion({
       messages: req.body.messages,
       model: 'gpt-3.5-turbo',
-      max_tokens: 1000,
+      max_tokens: 2000,
     });
     const completion = await JSON.stringify(response.data.choices[0].message);
     console.log(completion);
