@@ -17,7 +17,7 @@ function App() {
   function sendToChatGPT(messagesToSend) {
     const options = {
       method: 'POST',
-      url: "https://jazzy-fenglisu-58333b.netlify.app/api",
+      url: "https://jarvis-server2.onrender.com/api",
       data: {
         messages: messagesToSend,
       },
