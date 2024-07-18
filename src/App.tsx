@@ -26,14 +26,15 @@ function App() {
       },
     }
     axios.request(options)
+    // Todo: Show visually when messages are loading
       .then((response) => { 
         // handle response
       const message : Message = response.data
        setMessages((prevMessages) => ([...prevMessages, message]))
-       //
        setIsLoading(false)
       })
       .catch((error) => {
+        // Todo: handle visually error by using a component
         console.error(error);
       }); 
   }
